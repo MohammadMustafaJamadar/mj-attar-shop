@@ -3,7 +3,12 @@ import React, { ReactElement } from "react";
 import "./assets/css/materialdesignicons.min.css";
 import "./Apps.scss";
 
-import { Route, BrowserRouter as Router } from "react-router-dom";
+import {
+  Route,
+  Switch,
+  BrowserRouter as Router,
+  withRouter,
+} from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import routes from "./routes/allRoutes";
 
@@ -26,7 +31,8 @@ function App() {
   return (
     <React.Fragment>
       <Router>
-        {routes.map((route: RouteProps, idx: number) => (
+       <Switch>
+       {routes.map((route: RouteProps, idx: number) => (
           <Route
             path={route.path}
             exact
@@ -34,9 +40,15 @@ function App() {
             key={idx}
           />
         ))}
+       </Switch>
       </Router>
     </React.Fragment>
   );
 }
 
-export default App;
+export default withRouter(App);;
+
+
+
+
+
