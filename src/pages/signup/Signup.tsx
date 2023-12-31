@@ -3,7 +3,7 @@ import React from "react";
 import { Container, Row, Col } from "reactstrap";
 
 import ImageSection from "../../components/signup/ImageSection";
-import SignupFormSection from "./SignupFormSection";
+import SignupFormSection from "../../components/signup/SignupFormSection";
 
 const Signup = () => {
   return (
