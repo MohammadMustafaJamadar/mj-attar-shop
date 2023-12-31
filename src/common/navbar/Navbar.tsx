@@ -133,58 +133,6 @@ const Navbar = (props: any) => {
           </div>
 
           <ul className="buy-button list-inline mb-0">
-<<<<<<< HEAD
-=======
-            <li className="list-inline-item mb-0 pe-1">
-              <Dropdown isOpen={dropdownOpen} toggle={toggleDropdown}>
-                <DropdownToggle
-                  color="none"
-                  type="button"
-                  className="btn btn-link text-decoration-none p-0"
-                >
-                  <i className="uil uil-search text-dark fs-5 align-middle"></i>
-                </DropdownToggle>
-                <DropdownMenu
-                  end
-                  className="dd-menu dropdown-menu-end bg-white shadow rounded border-0 mt-3 p-0"
-                  style={{ width: "300px" }}
-                >
-                  <div className="search-bar">
-                    <Form className="searchform">
-                      <input
-                        type="text"
-                        id="text"
-                        name="name"
-                        className="form-control border rounded"
-                        placeholder="Search..."
-                      />
-                    </Form>
-                  </div>
-                </DropdownMenu>
-              </Dropdown>
-            </li>{" "}
-            <li className="list-inline-item mb-0 pe-1">
-              <Dropdown isOpen={dropdownOpenShop} toggle={toggleDropdownShop}>
-                <DropdownToggle
-                  type="button"
-                  id="buyButton"
-                  className="btn btn-icon btn-pills dropdown-toggle shoppingbtn"
-                  color="primary"
-                >
-                  <Icon name="shopping-cart" />
-                </DropdownToggle>
-              </Dropdown>
-            </li>
-            <li className="list-inline-item mb-0 pe-1">
-              <Link
-                to="#"
-                className="btn btn-icon btn-pills btn-primary"
-                color="primary"
-              >
-                <Icon name="heart" />
-              </Link>
-            </li>
->>>>>>> 0b1190c8131f9acbaa80fea8201f602e537a6f40
             <li className="list-inline-item mb-0">
               <Dropdown
                 color="primary"
@@ -202,7 +150,6 @@ const Navbar = (props: any) => {
                 <DropdownMenu
                   direction="start"
                   className="dd-menu dropdown-menu-end bg-white shadow rounded border-0 mt-3 py-3"
-<<<<<<< HEAD
                   style={{ width: "230px" }}
                 >
                   <div className="dropdown-item">
@@ -212,12 +159,6 @@ const Navbar = (props: any) => {
                   <div className="dropdown-divider my-3 border-top"></div>
                   <Link className="dropdown-item" to="/login">
                     <i className="uil uil-user align-middle me-1"></i> Login
-=======
-                  style={{ width: "200px" }}
-                >
-                  <Link className="dropdown-item" to="#">
-                    <i className="uil uil-user align-middle me-1"></i> Account
->>>>>>> 0b1190c8131f9acbaa80fea8201f602e537a6f40
                   </Link>
                   <Link className="dropdown-item" to="#">
                     <i className="uil uil-clipboard-notes align-middle me-1"></i>{" "}
@@ -235,7 +176,6 @@ const Navbar = (props: any) => {
                 </DropdownMenu>
               </Dropdown>
             </li>
-<<<<<<< HEAD
             <li className="list-inline-item mb-0 ">
               <Dropdown isOpen={dropdownOpenShop} toggle={toggleDropdownShop}>
                 <DropdownToggle
@@ -248,134 +188,12 @@ const Navbar = (props: any) => {
                 </DropdownToggle>
               </Dropdown>
             </li>
-=======
->>>>>>> 0b1190c8131f9acbaa80fea8201f602e537a6f40
           </ul>
 
           <div id="navigation">
             <ul className="navigation-menu">
-<<<<<<< HEAD
               <li className="has-submenu parent-menu-item">
                 <Link to="/#">Search ayenga</Link>
-=======
-              <li>
-                <Link to="/index-shop" className="sub-menu-item">
-                  Home
-                </Link>
-              </li>
-
-              <li>
-                <Link to="/shop-aboutus" className="sub-menu-item">
-                  {" "}
-                  About Us
-                </Link>
-              </li>
-
-              <li className="has-submenu parent-menu-item">
-                <Link to="/#">Shop</Link>
-                <span className="menu-arrow"></span>
-                <ul className="submenu">
-                  <li>
-                    <Link to="/shop-fullwidth-grids" className="sub-menu-item">
-                      Fullwidth Grid
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/shop-grids" className="sub-menu-item">
-                      Product Grids
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/shop-fullwidth-lists" className="sub-menu-item">
-                      Fullwidth List
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/shop-lists" className="sub-menu-item">
-                      Product List
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/shop-product-detail" className="sub-menu-item">
-                      Product Details
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/shop-cart" className="sub-menu-item">
-                      Shop Cart
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/shop-checkouts" className="sub-menu-item">
-                      Checkouts
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/shop-myaccount" className="sub-menu-item">
-                      My Account
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-
-              <li className="has-submenu parent-menu-item">
-                <Link to="/#">Pages</Link>
-                <span className="menu-arrow"></span>
-                <ul className="submenu">
-                  <li>
-                    <Link to="/auth-login" className="sub-menu-item">
-                      Login
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/auth-signup" className="sub-menu-item">
-                      Signup
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/auth-re-password" className="sub-menu-item">
-                      Reset Password
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/page-comingsoon" className="sub-menu-item">
-                      Coming Soon
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/page-maintenance" className="sub-menu-item">
-                      Maintenance
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/page-error" className="sub-menu-item">
-                      Error
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/page-thankyou" className="sub-menu-item">
-                      Thank you
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-
-              <li className="has-submenu parent-menu-item">
-                <Link to="/#">Blog</Link>
-                <span className="menu-arrow"></span>
-                <ul className="submenu">
-                  <li>
-                    <Link to="/shop-blog" className="sub-menu-item">
-                      Blog Grid
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/shop-blog-detail" className="sub-menu-item">
-                      Blog Detail
-                    </Link>
-                  </li>
-                </ul>
->>>>>>> 0b1190c8131f9acbaa80fea8201f602e537a6f40
               </li>
             </ul>
           </div>
