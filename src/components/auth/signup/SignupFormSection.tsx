@@ -14,9 +14,10 @@ import {
   CardBody,
 } from "reactstrap";
 import { handelInput } from "../../../utils/helper";
+import { TUserSignUp } from "../../../types/AuthTypes";
 
 const SignupFormSection = () => {
-  const defaultUserData = {
+  const defaultUserData: TUserSignUp = {
     firstname: "",
     lastname: "",
     email: "",
@@ -24,7 +25,6 @@ const SignupFormSection = () => {
   };
   const [user, setUser] = useState(defaultUserData);
 
-  // console.log(user, "user");
 
   return (
     <React.Fragment>
