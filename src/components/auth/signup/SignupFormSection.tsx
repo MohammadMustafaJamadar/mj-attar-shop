@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent, useState } from "react";
 
 import { Icon } from "ts-react-feather-icons";
 
@@ -12,10 +12,20 @@ import {
   Button,
   Card,
   CardBody,
-  FormFeedback,
 } from "reactstrap";
+import { handelInput } from "../../../utils/helper";
 
 const SignupFormSection = () => {
+  const defaultUserData = {
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+  };
+  const [user, setUser] = useState(defaultUserData);
+
+  // console.log(user, "user");
+
   return (
     <React.Fragment>
       <Card className="shadow rounded border-0">
@@ -42,6 +52,10 @@ const SignupFormSection = () => {
                     name="firstname"
                     id="firstname"
                     placeholder="First Name"
+                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                      handelInput(setUser, user, event);
+                    }}
+                    value={user.firstname}
                   />
                 </div>
               </Col>
@@ -64,6 +78,10 @@ const SignupFormSection = () => {
                     name="lastname"
                     id="lastname"
                     placeholder="Last Name"
+                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                      handelInput(setUser, user, event);
+                    }}
+                    value={user.lastname}
                   />
                 </div>
               </Col>
@@ -86,6 +104,10 @@ const SignupFormSection = () => {
                     name="email"
                     id="email"
                     placeholder="Email"
+                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                      handelInput(setUser, user, event);
+                    }}
+                    value={user.email}
                   />
                 </div>
               </Col>
@@ -109,6 +131,10 @@ const SignupFormSection = () => {
                     name="password"
                     id="password"
                     placeholder="password"
+                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                      handelInput(setUser, user, event);
+                    }}
+                    value={user.password}
                   />
                 </div>
               </Col>
@@ -135,7 +161,14 @@ const SignupFormSection = () => {
               </Col>
               <Col md={12}>
                 <div className="d-grid">
-                  <Button color="primary">Register</Button>
+                  <Button
+                    color="primary"
+                    onClick={() => {
+                      console.log(user, "user");
+                    }}
+                  >
+                    Register
+                  </Button>
                 </div>
               </Col>
               <Col md={12} className="mt-4 text-center">

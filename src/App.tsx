@@ -9,7 +9,7 @@ import {
   BrowserRouter as Router,
   withRouter,
 } from "react-router-dom";
-import Layout from "./components/Layout/Layout";
+import Layout from "./components/layout/Layout";
 import routes from "./routes/allRoutes";
 
 interface RouteProps {

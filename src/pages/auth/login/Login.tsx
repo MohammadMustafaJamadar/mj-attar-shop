@@ -2,8 +2,8 @@ import React from "react";
 
 import { Container, Row, Col } from "reactstrap";
 
-import ImageSection from "../../components/login/ImageSection";
-import LoginFormSectiom from "../../components/login/LoginFormSectiom";
+import ImageSection from "../../../components/auth/login/ImageSection";
+import LoginFormSectiom from "../../../components/auth/login/LoginFormSectiom";
 
 const Login = () => {
   return (

@@ -7,15 +7,15 @@ import Slider from "react-slick";
 
 //Import Slick Slider CSS
 
-import "../../../node_modules/slick-carousel/slick/slick.css";
+import "../../../../node_modules/slick-carousel/slick/slick.css";
 
-import "../../../node_modules/slick-carousel/slick/slick-theme.css";
+import "../../../../node_modules/slick-carousel/slick/slick-theme.css";
 
 //Import Images
 // import bg1 from "../../../../assets/images/shop/bg1.jpg";
-import bg1 from "../../assets/images/shop/bg1.jpg";
-import bg2 from "../../assets/images/shop/bg2.jpg";
-import bg3 from "../../assets/images/shop/bg3.jpg";
+import bg1 from "../../../assets/images/shop/bg1.jpg";
+import bg2 from "../../../assets/images/shop/bg2.jpg";
+import bg3 from "../../../assets/images/shop/bg3.jpg";
 
 const CarouselSection = () => {
   const items = [

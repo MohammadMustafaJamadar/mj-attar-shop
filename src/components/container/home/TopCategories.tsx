@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import { Container, Row, Col, Card, CardBody } from "reactstrap";
 import { Link } from "react-router-dom";
 
-import fashion from "../../assets/images/shop/categories/fashion.jpg";
-import sports from "../../assets/images/shop/categories/sports.jpg";
-import music from "../../assets/images/shop/categories/music.jpg";
-import furniture from "../../assets/images/shop/categories/furniture.jpg";
-import electronics from "../../assets/images/shop/categories/electronics.jpg";
-import mobile from "../../assets/images/shop/categories/mobile.jpg";
+import fashion from "../../../assets/images/shop/categories/fashion.jpg";
+import sports from "../../../assets/images/shop/categories/sports.jpg";
+import music from "../../../assets/images/shop/categories/music.jpg";
+import furniture from "../../../assets/images/shop/categories/furniture.jpg";
+import electronics from "../../../assets/images/shop/categories/electronics.jpg";
+import mobile from "../../../assets/images/shop/categories/mobile.jpg";
 
 const cateData = [
   { img: fashion, title: "Fashion" },

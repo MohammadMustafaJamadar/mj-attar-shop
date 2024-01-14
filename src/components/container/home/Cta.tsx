@@ -3,7 +3,7 @@ import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
 
 //Import Images
-import ctaImg from "../../assets/images/shop/cta.jpg";
+import ctaImg from "../../../assets/images/shop/cta.jpg";
 
 const Cta = () => {
   return (

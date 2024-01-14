@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-import signup from "../../assets/images/user/signup.svg";
+import loginImg from "../../../assets/images/user/login.svg";
 
 const ImageSection = () => {
   return (
     <React.Fragment>
       <div className="me-lg-5">
                 <img
-                  src={signup}
+                  src={loginImg}
                   className="img-fluid d-block mx-auto"
                   alt=""
                 />

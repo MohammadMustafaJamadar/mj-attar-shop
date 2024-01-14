@@ -5,71 +5,92 @@ import { Link } from "react-router-dom";
 import { Icon } from "ts-react-feather-icons";
 
 //Import Images
-import product13 from "../../assets/images/shop/product/s13.jpg";
-import product14 from "../../assets/images/shop/product/s14.jpg";
-import product15 from "../../assets/images/shop/product/s15.jpg";
-import product16 from "../../assets/images/shop/product/s16.jpg";
+import product9 from "../../../assets/images/shop/product/s9.jpg";
+import product10 from "../../../assets/images/shop/product/s10.jpg";
+import product11 from "../../../assets/images/shop/product/s11.jpg";
+import product12 from "../../../assets/images/shop/product/s12.jpg";
 
-import prodtctOverlay13 from "../../assets/images/shop/product/s-13.jpg";
-import prodtctOverlay15 from "../../assets/images/shop/product/s-15.jpg";
-import prodtctOverlay16 from "../../assets/images/shop/product/s-16.jpg";
+import prodtctOverlay9 from "../../../assets/images/shop/product/s-9.jpg";
+import prodtctOverlay10 from "../../../assets/images/shop/product/s-10.jpg";
+import prodtctOverlay11 from "../../../assets/images/shop/product/s-11.jpg";
+import prodtctOverlay12 from "../../../assets/images/shop/product/s-12.jpg";
 
-const products = [
+interface Product {
+  id: number;
+  image: string;
+  imgOverlay: string;
+  name: string;
+  price: string;
+  oldPrice?: string; // Optional property
+  desc?: string; // Optional property
+  isIcon: {
+    icon: "heart" | "eye" | "shopping-cart"; // Valid icon names
+    subClass: string;
+  }[];
+}
+
+const products : Product[] = [
   {
     id: 1,
-    image: product13,
-    imgOverlay: prodtctOverlay13,
-    name: "Wooden Chair",
+    image: product9,
+    imgOverlay: prodtctOverlay9,
+    name: "Coffee Cup / Mug",
     price: "16.00",
     oldPrice: "21.00",
-    isNew: true,
-    isLogo: true,
-    isOverlay: true,
+    isIcon: [
+      { icon: "heart", subClass: "btn-soft-danger" },
+      { icon: "eye", subClass: "btn-soft-primary" },
+      { icon: "shopping-cart", subClass: "btn-soft-warning" },
+    ],
   },
   {
     id: 2,
-    image: product14,
-    name: "Women Block Heels",
+    image: product10,
+    imgOverlay: prodtctOverlay10,
+    name: "Sunglasses",
     price: "21.00",
     oldPrice: "25.00",
-    isNew: true,
-    outofstock: true,
-    isLogo: false,
-    isOverlay: false,
+    isIcon: [
+      { icon: "heart", subClass: "btn-soft-danger" },
+      { icon: "eye", subClass: "btn-soft-primary" },
+      { icon: "shopping-cart", subClass: "btn-soft-warning" },
+    ],
   },
   {
     id: 3,
-    image: product15,
-    imgOverlay: prodtctOverlay15,
-    name: "T-Shirts",
+    image: product11,
+    imgOverlay: prodtctOverlay11,
+    name: "Loafer Shoes",
     price: "5.00",
     desc: "30% off",
-    isNew: true,
-    isLogo: true,
-    isOverlay: true,
+    isIcon: [
+      { icon: "heart", subClass: "btn-soft-danger" },
+      { icon: "eye", subClass: "btn-soft-primary" },
+      { icon: "shopping-cart", subClass: "btn-soft-warning" },
+    ],
   },
   {
     id: 4,
-    image: product16,
-    imgOverlay: prodtctOverlay16,
-    name: "Clock",
+    image: product12,
+    imgOverlay: prodtctOverlay12,
+    name: "T-Shirts",
     price: "18.00",
     oldPrice: "22.00",
-    isNew: true,
-    isFeatured: true,
-    isSale: true,
-    isLogo: true,
-    isOverlay: true,
+    isIcon: [
+      { icon: "heart", subClass: "btn-soft-danger" },
+      { icon: "eye", subClass: "btn-soft-primary" },
+      { icon: "shopping-cart", subClass: "btn-soft-warning" },
+    ],
   },
 ];
 
-const RecentProducts = () => {
+const PopularProducts = () => {
   return (
     <React.Fragment>
       <Container className="mt-100 mt-60">
         <Row>
           <Col xs={12}>
-            <h5 className="mb-0">Recent Products</h5>
+            <h5 className="mb-0">Popular Products</h5>
           </Col>
         </Row>
 
@@ -81,9 +102,9 @@ const RecentProducts = () => {
                   <li>
                     <Link
                       to="#"
-                      className="badge badge-link rounded-pill bg-primary"
+                      className="badge badge-link rounded-pill bg-info"
                     >
-                      New
+                      Popular
                     </Link>
                   </li>
                 </ul>
@@ -91,58 +112,29 @@ const RecentProducts = () => {
                   <Link to="shop-product-detail">
                     <img src={product.image} className="img-fluid" alt="shop" />
                   </Link>
-                  {product.isOverlay ? (
-                    <Link to="shop-product-detail" className="overlay-work">
-                      <img
-                        src={product.imgOverlay}
-                        className="img-fluid"
-                        alt="shop"
-                      />
-                    </Link>
-                  ) : null}
+                  <Link to="shop-product-detail" className="overlay-work">
+                    <img
+                      src={product.imgOverlay}
+                      className="img-fluid"
+                      alt="shop"
+                    />
+                  </Link>
                   <ul className="list-unstyled shop-icons">
-                    <li>
-                      {product.isLogo ? (
+                    {product?.isIcon?.map((item, key) => (
+                      <li key={key}>
                         <Link
                           to="#"
-                          className="btn btn-icon btn-pills btn-soft-danger"
+                          className={
+                            "mb-2 btn btn-icon btn-pills " + item.subClass
+                          }
                         >
                           <i>
-                            <Icon name="heart" />
+                            <Icon name={item.icon} />
                           </i>
                         </Link>
-                      ) : null}
-                    </li>
-                    <li className="mt-2">
-                      <Link
-                        to="shop-product-detail"
-                        className="btn btn-icon btn-pills btn-soft-primary"
-                      >
-                        <i>
-                          <Icon name="eye" />
-                        </i>
-                      </Link>
-                    </li>
-                    <li className="mt-2">
-                      {product.isLogo ? (
-                        <Link
-                          to="shop-cart"
-                          className="btn btn-icon btn-pills btn-soft-warning"
-                        >
-                          <i>
-                            <Icon name="shopping-cart" />
-                          </i>
-                        </Link>
-                      ) : null}
-                    </li>
+                      </li>
+                    ))}
                   </ul>
-                  {product.outofstock && (
-                    <div className="overlay-work">
-                      <div className="py-2 bg-soft-dark rounded-bottom out-stock">
-                        <h6 className="mb-0 text-center">Out of stock</h6>
-                      </div>
-                    </div>
-                  )}
                 </div>
                 <CardBody className="content pt-4 p-2">
                   <Link
@@ -152,7 +144,7 @@ const RecentProducts = () => {
                     {product.name}
                   </Link>
                   <div className="d-flex justify-content-between mt-1">
-                    <h6 className="text-dark small fst-italic mb-0 mt-1">
+                    <h6 className="text-muted small fst-italic mb-0 mt-1">
                       ${product.price}{" "}
                       {product.oldPrice ? (
                         <del className="text-danger ms-2">
@@ -193,4 +185,4 @@ const RecentProducts = () => {
   );
 };
 
-export default RecentProducts;
+export default PopularProducts;

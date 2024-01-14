@@ -5,23 +5,23 @@ import { Link } from "react-router-dom";
 import { Icon } from "ts-react-feather-icons";
 
 //Import Images
-import product1 from "../../assets/images/shop/product/s1.jpg";
-import product2 from "../../assets/images/shop/product/s2.jpg";
-import product3 from "../../assets/images/shop/product/s3.jpg";
-import product4 from "../../assets/images/shop/product/s4.jpg";
-import product5 from "../../assets/images/shop/product/s5.jpg";
-import product6 from "../../assets/images/shop/product/s6.jpg";
-import product7 from "../../assets/images/shop/product/s7.jpg";
-import product8 from "../../assets/images/shop/product/s8.jpg";
+import product1 from "../../../assets/images/shop/product/s1.jpg";
+import product2 from "../../../assets/images/shop/product/s2.jpg";
+import product3 from "../../../assets/images/shop/product/s3.jpg";
+import product4 from "../../../assets/images/shop/product/s4.jpg";
+import product5 from "../../../assets/images/shop/product/s5.jpg";
+import product6 from "../../../assets/images/shop/product/s6.jpg";
+import product7 from "../../../assets/images/shop/product/s7.jpg";
+import product8 from "../../../assets/images/shop/product/s8.jpg";
 
-import prodtctOverlay1 from "../../assets/images/shop/product/s-1.jpg";
-import prodtctOverlay2 from "../../assets/images/shop/product/s-2.jpg";
-import prodtctOverlay3 from "../../assets/images/shop/product/s-3.jpg";
-import prodtctOverlay4 from "../../assets/images/shop/product/s-4.jpg";
-import prodtctOverlay5 from "../../assets/images/shop/product/s-5.jpg";
-import prodtctOverlay6 from "../../assets/images/shop/product/s-6.jpg";
-import prodtctOverlay7 from "../../assets/images/shop/product/s-7.jpg";
-import prodtctOverlay8 from "../../assets/images/shop/product/s-8.jpg";
+import prodtctOverlay1 from "../../../assets/images/shop/product/s-1.jpg";
+import prodtctOverlay2 from "../../../assets/images/shop/product/s-2.jpg";
+import prodtctOverlay3 from "../../../assets/images/shop/product/s-3.jpg";
+import prodtctOverlay4 from "../../../assets/images/shop/product/s-4.jpg";
+import prodtctOverlay5 from "../../../assets/images/shop/product/s-5.jpg";
+import prodtctOverlay6 from "../../../assets/images/shop/product/s-6.jpg";
+import prodtctOverlay7 from "../../../assets/images/shop/product/s-7.jpg";
+import prodtctOverlay8 from "../../../assets/images/shop/product/s-8.jpg";
 
 const products = [
   {

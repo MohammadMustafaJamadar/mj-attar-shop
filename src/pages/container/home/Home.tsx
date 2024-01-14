@@ -1,13 +1,16 @@
-import React from "react";
-import CarouselSection from "../../components/home/CarouselSection";
-import CollectionSection from "../../components/home/CollectionSection";
-import MostViewedProducts from "../../components/home/MostViewedProducts";
-import TopCategories from "../../components/home/TopCategories";
-import PopularProducts from "../../components/home/PopularProducts";
-import Cta from "../../components/home/Cta";
-import RecentProducts from "../../components/home/RecentProducts";
+import React, { useEffect } from "react";
+import CarouselSection from "../../../components/container/home/CarouselSection";
+import CollectionSection from "../../../components/container/home/CollectionSection";
+import MostViewedProducts from "../../../components/container/home/MostViewedProducts";
+import TopCategories from "../../../components/container/home/TopCategories";
+import PopularProducts from "../../../components/container/home/PopularProducts";
+import Cta from "../../../components/container/home/Cta";
+import RecentProducts from "../../../components/container/home/RecentProducts";
 
 const Home = () => {
+  useEffect(() => {
+    document.title = "Home";
+  }, []);
   return (
     <React.Fragment>
       <div className="carosel-section">

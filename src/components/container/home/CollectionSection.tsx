@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 //Import Images
 // import fea1 from '../../../../assets/images/shop/fea1.jpg';
-import fea1 from "../../assets/images/shop/fea1.jpg";
-import fea2 from "../../assets/images/shop/fea2.jpg";
-import fea3 from "../../assets/images/shop/fea3.jpg";
+import fea1 from "../../../assets/images/shop/fea1.jpg";
+import fea2 from "../../../assets/images/shop/fea2.jpg";
+import fea3 from "../../../assets/images/shop/fea3.jpg";
 
 const cardData = [{ img: fea1 }, { img: fea2 }, { img: fea3 }];
 

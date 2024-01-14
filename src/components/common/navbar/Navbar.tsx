@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Dropdown, DropdownMenu, DropdownToggle, Form } from "reactstrap";
-import logodark from "../../assets/images/logo-dark.png";
 import { Icon } from "ts-react-feather-icons";
 
 const Navbar = (props: any) => {
@@ -107,12 +106,7 @@ const Navbar = (props: any) => {
       <header id="topnav" className="defaultscroll sticky">
         <div className="container">
           <Link className="logo" to="/">
-            <img
-              src={logodark}
-              height="24"
-              className="logo-light-mode"
-              alt=""
-            />
+            MJ Attar Shop
           </Link>
 
           <div className="menu-extras">
