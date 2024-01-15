@@ -9,15 +9,11 @@ import {
   BrowserRouter as Router,
   withRouter,
 } from "react-router-dom";
-import Layout from "./components/Layout/Layout";
+import Layout from "./components/layout/Layout";
 import routes from "./routes/allRoutes";
+import { IRouteProps } from "./interfaces/Route";
 
-interface RouteProps {
-  path: string;
-  component: React.ComponentType<any>;
-}
-
-function withLayout<T extends RouteProps>(
+function withLayout<T extends IRouteProps>(
   WrappedComponent: React.ComponentType<T>
 ) {
   return (props: T): ReactElement => (
@@ -31,24 +27,19 @@ function App() {
   return (
     <React.Fragment>
       <Router>
-       <Switch>
-       {routes.map((route: RouteProps, idx: number) => (
-          <Route
-            path={route.path}
-            exact
-            component={withLayout(route.component)}
-            key={idx}
-          />
-        ))}
-       </Switch>
+        <Switch>
+          {routes.map((route: IRouteProps, idx: number) => (
+            <Route
+              path={route.path}
+              exact
+              component={withLayout(route.component)}
+              key={idx}
+            />
+          ))}
+        </Switch>
       </Router>
     </React.Fragment>
   );
 }
 
-export default withRouter(App);;
-
-
-
-
-
+export default withRouter(App);

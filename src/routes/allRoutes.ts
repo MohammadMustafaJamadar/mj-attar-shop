@@ -1,6 +1,6 @@
-import Home from "../pages/home/Home";
-import Login from "../pages/login/Login";
-import Signup from "../pages/signup/Signup";
+import Home from "../pages/container/home/Home";
+import Login from "../pages/auth/login/Login";
+import Signup from "../pages/auth/signup/Signup";
 
 const routes = [
   { path: "/", component: Home },
