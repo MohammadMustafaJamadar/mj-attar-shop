@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Row,
@@ -9,11 +9,32 @@ import {
   Button,
   Card,
   CardBody,
-  FormFeedback,
 } from "reactstrap";
 import { Icon } from "ts-react-feather-icons";
+import { TUserLoginDetails } from "../../../types/AuthTypes";
+import { useFormik } from "formik";
+import loginValidationSchema from "../../../validation/loginValidationSchema";
+import ErrorMassage from "../../common/error/ErrorMassage";
 
 const LoginFormSectiom = () => {
+  const defaultLoginDetails: TUserLoginDetails = { email: "", password: "" };
+  const [isPasswordShow, setIsPasswordShow] = useState(false);
+  const formik = useFormik({
+    initialValues: defaultLoginDetails,
+    onSubmit: (values: any) => {
+      handelSubmit(values);
+    },
+    validationSchema: loginValidationSchema,
+  });
+
+  const handelPasswordShow = () => {
+    setIsPasswordShow(!isPasswordShow);
+  };
+
+  const handelSubmit = (values: any) => {
+    console.log(values, "values");
+  };
+
   return (
     <React.Fragment>
       <Card className="login-page bg-white shadow rounded border-0">
@@ -21,7 +42,7 @@ const LoginFormSectiom = () => {
           <div className="card-title text-center">
             <h4 className="mb-4">Login</h4>
           </div>
-          <Form className="login-form mt-4">
+          <Form className="login-form mt-4" onSubmit={formik.handleSubmit}>
             <Row>
               <Col lg={12}>
                 <div className="mb-3">
@@ -42,7 +63,16 @@ const LoginFormSectiom = () => {
                     name="email"
                     id="email"
                     placeholder="Email"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.email}
+                    invalid={
+                      formik.touched.email && formik.errors.email ? true : false
+                    }
                   />
+                  {formik.touched.email && formik.errors.email && (
+                    <ErrorMassage errorMassage={formik.errors.email} />
+                  )}
                 </div>
               </Col>
 
@@ -53,19 +83,36 @@ const LoginFormSectiom = () => {
                   </Label>
                   <div
                     className="form-icon position-relative"
-                    style={{ marginBottom: "5px" }}
+                    style={{ marginBottom: "5px", cursor: "pointer" }}
                   >
-                    <i className="fea icon-sm icons">
-                      <Icon name="key" size={15} />
+                    <i
+                      className="fea icon-sm icons"
+                      onClick={handelPasswordShow}
+                    >
+                      <Icon
+                        name={`${isPasswordShow ? "eye-off" : "eye"}`}
+                        size={15}
+                      />
                     </i>
                   </div>
                   <Input
-                    type="password"
+                    type={`${isPasswordShow ? "text" : "password"}`}
                     className="form-control ps-5"
                     name="password"
                     id="password"
                     placeholder="Password"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.password}
+                    invalid={
+                      formik.touched.password && formik.errors.password
+                        ? true
+                        : false
+                    }
                   />
+                  {formik.touched.password && formik.errors.password && (
+                    <ErrorMassage errorMassage={formik.errors.password} />
+                  )}
                 </div>
               </Col>
 
@@ -95,7 +142,9 @@ const LoginFormSectiom = () => {
               </Col>
               <Col lg={12} className="mb-0">
                 <div className="d-grid">
-                  <Button color="primary">Sign in</Button>
+                  <Button type="submit" color="primary">
+                    Sign in
+                  </Button>
                 </div>
               </Col>
               <Col lg={12} className="mt-4 text-center">

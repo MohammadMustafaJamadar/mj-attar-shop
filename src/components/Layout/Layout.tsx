@@ -7,7 +7,7 @@ interface LayoutProps {
 }
 
 const Layout = (props: LayoutProps) => {
-  console.log(props.children);
+
   return (
     <React.Fragment>
       <Navbar />

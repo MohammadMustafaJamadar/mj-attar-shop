@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { useState } from "react";
 
 import { Icon } from "ts-react-feather-icons";
 
@@ -13,31 +13,53 @@ import {
   Card,
   CardBody,
 } from "reactstrap";
-import { handelInput } from "../../../utils/helper";
-import { TUserSignUp } from "../../../types/AuthTypes";
+import { TUserSignUpDetails } from "../../../types/AuthTypes";
+import { useFormik } from "formik";
+import signupValidationSchema from "../../../validation/signUpValidationSchema";
+import ErrorMassage from "../../common/error/ErrorMassage";
 
 const SignupFormSection = () => {
-  const defaultUserData: TUserSignUp = {
+  const initialValues: TUserSignUpDetails = {
     firstname: "",
     lastname: "",
     email: "",
     password: "",
   };
-  const [user, setUser] = useState(defaultUserData);
+  const formik = useFormik({
+    initialValues,
+    validationSchema: signupValidationSchema,
+    onSubmit: (values: any) => {
+      handelFormSubmit(values);
+    },
+  });
+  const [isButtonDisable, setIsButtonDisable] = useState(true);
+  const [isPasswordShow, setIsPasswordShow] = useState(false);
 
+  const handelButtonDisable = () => {
+    setIsButtonDisable(!isButtonDisable);
+  };
+
+  const handelPasswordShow = () => {
+    setIsPasswordShow(!isPasswordShow);
+  };
+
+  const handelFormSubmit = (values: any) => {
+    console.log("user", values);
+  };
 
   return (
     <React.Fragment>
       <Card className="shadow rounded border-0">
         <CardBody>
           <h4 className="card-title text-center">Signup</h4>
-          <Form className="login-form mt-4">
+          <Form className="login-form mt-4" onSubmit={formik.handleSubmit}>
             <Row>
               <Col md={6}>
                 <div className="mb-3">
                   <Label className="form-label" htmlFor="firstname">
                     First name <span className="text-danger">*</span>
                   </Label>
+
                   <div
                     className="form-icon position-relative"
                     style={{ marginBottom: "5px" }}
@@ -52,11 +74,19 @@ const SignupFormSection = () => {
                     name="firstname"
                     id="firstname"
                     placeholder="First Name"
-                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                      handelInput(setUser, user, event);
-                    }}
-                    value={user.firstname}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.firstname || ""}
+                    invalid={
+                      formik?.touched?.firstname && formik?.errors?.firstname
+                        ? true
+                        : false
+                    }
                   />
+                  {formik?.touched?.firstname &&
+                    typeof formik?.errors?.firstname === "string" && (
+                      <ErrorMassage errorMassage={formik?.errors?.firstname} />
+                    )}
                 </div>
               </Col>
               <Col md={6}>
@@ -78,11 +108,19 @@ const SignupFormSection = () => {
                     name="lastname"
                     id="lastname"
                     placeholder="Last Name"
-                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                      handelInput(setUser, user, event);
-                    }}
-                    value={user.lastname}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.lastname}
+                    invalid={
+                      formik?.touched?.lastname && formik?.errors?.lastname
+                        ? true
+                        : false
+                    }
                   />
+                  {formik?.touched?.lastname &&
+                    typeof formik?.errors?.lastname === "string" && (
+                      <ErrorMassage errorMassage={formik?.errors?.lastname} />
+                    )}
                 </div>
               </Col>
               <Col md="12">
@@ -104,16 +142,24 @@ const SignupFormSection = () => {
                     name="email"
                     id="email"
                     placeholder="Email"
-                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                      handelInput(setUser, user, event);
-                    }}
-                    value={user.email}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.email}
+                    invalid={
+                      formik?.touched?.email && formik?.errors?.email
+                        ? true
+                        : false
+                    }
                   />
+                  {formik?.touched?.email &&
+                    typeof formik?.errors?.email === "string" && (
+                      <ErrorMassage errorMassage={formik?.errors?.email} />
+                    )}
                 </div>
               </Col>
 
               <Col md={12}>
-                <div className="mb-3">
+                <div className="mb-3" style={{ cursor: "pointer" }}>
                   <Label className="form-label" htmlFor="password">
                     Password <span className="text-danger">*</span>
                   </Label>
@@ -121,21 +167,35 @@ const SignupFormSection = () => {
                     className="form-icon position-relative"
                     style={{ marginBottom: "5px" }}
                   >
-                    <i className="fea icon-sm icons">
-                      <Icon name="key" size={15} />
+                    <i
+                      className="fea icon-sm icons"
+                      onClick={handelPasswordShow}
+                    >
+                      <Icon
+                        name={`${isPasswordShow ? "eye-off" : "eye"}`}
+                        size={15}
+                      />
                     </i>
                   </div>
                   <Input
-                    type="password"
+                    type={`${isPasswordShow ? "text" : "password"}`}
                     className="form-control ps-5"
                     name="password"
                     id="password"
-                    placeholder="password"
-                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                      handelInput(setUser, user, event);
-                    }}
-                    value={user.password}
+                    placeholder="Password"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.password}
+                    invalid={
+                      formik.touched.password && formik.errors.password
+                        ? true
+                        : false
+                    }
                   />
+                  {formik?.touched?.password &&
+                    typeof formik?.errors?.password === "string" && (
+                      <ErrorMassage errorMassage={formik?.errors?.password} />
+                    )}
                 </div>
               </Col>
 
@@ -146,6 +206,7 @@ const SignupFormSection = () => {
                       type="checkbox"
                       className="form-check-input"
                       id="flexCheckDefault"
+                      onClick={handelButtonDisable}
                     />
                     <Label
                       className="form-check-label"
@@ -163,9 +224,8 @@ const SignupFormSection = () => {
                 <div className="d-grid">
                   <Button
                     color="primary"
-                    onClick={() => {
-                      console.log(user, "user");
-                    }}
+                    type="submit"
+                    disabled={isButtonDisable}
                   >
                     Register
                   </Button>
