@@ -51,8 +51,8 @@ const CarouselSection = () => {
     ) as HTMLCollectionOf<HTMLElement>;
     for (let i = 0; i < 3; i++) {
       if (i === 0) e1[i].style.background = `url(${bg2}) center center`;
-      if (i === 1) e1[i].style.background = `url(${bg3}) center center`;
-      if (i === 2) e1[i].style.background = `url(${bg1}) center center`;
+      if (i === 1) e1[i].style.background = `url(${bg1}) center center`;
+      if (i === 2) e1[i].style.background = `url(${bg3}) center center`;
     }
   }, []);
 

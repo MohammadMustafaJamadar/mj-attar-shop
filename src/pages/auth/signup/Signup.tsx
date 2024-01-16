@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { Container, Row, Col } from "reactstrap";
 
@@ -6,6 +6,9 @@ import ImageSection from "../../../components/auth/signup/ImageSection";
 import SignupFormSection from "../../../components/auth/signup/SignupFormSection";
 
 const Signup = () => {
+  useEffect(()=>{
+    document.title = "Signup"
+  },[])
   return (
     <React.Fragment>
       <section className="bg-auth-home d-table w-100">

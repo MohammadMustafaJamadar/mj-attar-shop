@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { Container, Row, Col } from "reactstrap";
 
@@ -6,6 +6,9 @@ import ImageSection from "../../../components/auth/login/ImageSection";
 import LoginFormSectiom from "../../../components/auth/login/LoginFormSectiom";
 
 const Login = () => {
+  useEffect(()=>{
+    document.title = "Login"
+  },[])
   return (
     <React.Fragment>
       <section className="bg-home d-flex align-items-center">

@@ -146,9 +146,9 @@ const Navbar = (props: any) => {
                   className="dd-menu dropdown-menu-end bg-white shadow rounded border-0 mt-3 py-3"
                   style={{ width: "230px" }}
                 >
-                  <div className="dropdown-item">
+                  <div className="ms-3">
                     New customer? &nbsp; &nbsp; &nbsp;{" "}
-                    <Link to="/signup" className="fw-bold">Sign up</Link>
+                    <Link to="/signup" className="fw-bold" >Sign up</Link>
                   </div>
                   <div className="dropdown-divider my-3 border-top"></div>
                   <Link className="dropdown-item" to="/login">
